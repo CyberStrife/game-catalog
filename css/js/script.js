@@ -29,3 +29,4 @@ function mostrarFavoritos() {
 }
 
 window.onload = mostrarFavoritos;
+window.favoritar = favoritar;
