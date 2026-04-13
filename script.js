@@ -1,31 +1,31 @@
 function favoritar(jogo) {
   let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-  if (favoritos.includes(jogo)) {
-    favoritos = favoritos.filter(item => item !== jogo);
-    alert(jogo + " removido dos favoritos ❌");
-  } else {
-    favoritos.push(jogo);
-    alert(jogo + " adicionado aos favoritos ⭐");
-  }
+  favoritos.push(jogo);
 
   localStorage.setItem('favoritos', JSON.stringify(favoritos));
+
+  alert(jogo + " salvo!");
+
   mostrarFavoritos();
 }
 
 function mostrarFavoritos() {
   const lista = document.getElementById("lista-favoritos");
+
   if (!lista) return;
 
   lista.innerHTML = "";
 
   let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
-  favoritos.forEach(jogo => {
-    const li = document.createElement("li");
-    li.textContent = jogo;
+  for (let i = 0; i < favoritos.length; i++) {
+    let li = document.createElement("li");
+    li.textContent = favoritos[i];
     lista.appendChild(li);
-  });
+  }
 }
 
-window.onload = mostrarFavoritos;
+window.onload = function () {
+  mostrarFavoritos();
+};
