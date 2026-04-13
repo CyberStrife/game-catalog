@@ -1,3 +1,4 @@
+alert("JS carregou");
 function favoritar(jogo) {
   let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
 
